@@ -26,11 +26,11 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        # Instala NPM
-                        sudo npm install --save-dev jest
                         # Cargar NVM
                         . $NVM_DIR/nvm.sh
                         nvm use node
+                        # Instala NPM
+                        sudo npm install --save-dev jest
                         npm test
                     '''
                 }
