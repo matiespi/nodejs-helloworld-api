@@ -16,7 +16,7 @@ pipeline {
                         # Cargar NVM
                         . $NVM_DIR/nvm.sh
                         sudo apt update -y
-                        sudo nvm install node
+                        nvm install node
                         sudo npm install --save-dev jest
                     '''
                 }
