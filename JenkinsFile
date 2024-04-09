@@ -5,8 +5,8 @@ pipeline {
             steps {
                 script{
                     sh '''
-                        cd /tmp
-                        rm -rf nodejs-helloworld-api.git/
+                        cd /tmp/
+                        rm -rf /tmp/nodejs-helloworld-api.git/
                         git clone https://github.com/matiespi/nodejs-helloworld-api.git
                         cd /tmp/nodejs-helloworld-api
                         sudo apt update -y
