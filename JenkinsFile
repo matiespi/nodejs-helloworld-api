@@ -12,11 +12,8 @@ pipeline {
                         cd /tmp/
                         git clone https://github.com/matiespi/nodejs-helloworld-api.git
                         cd /tmp/nodejs-helloworld-api
-                        //test
                         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-                        // Cargar NVM
                         source $NVM_DIR/nvm.sh
-                        // Cargar NVM
                         source $NVM_DIR/nvm.sh
                         sudo apt update -y
                         sudo nvm install node
