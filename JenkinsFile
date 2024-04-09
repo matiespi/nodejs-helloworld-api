@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh"cd /tmp/nodejs-helloworld-api"
+                sh "cd /tmp/nodejs-helloworld-api"
                 sh "npm test"
             }
         }
