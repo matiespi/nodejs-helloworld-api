@@ -6,7 +6,6 @@ pipeline {
                 script{
                     sh '''
                         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-                        source ~/.bashrc
                         command -v nvm
                         rm -rf /tmp/nodejs-helloworld-api/
                         cd /tmp/
