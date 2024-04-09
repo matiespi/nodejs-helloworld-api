@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        NVM_DIR = """$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"""
+        NVM_DIR = sh(script: '[ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm"', returnStdout: true).trim()
     }
     stages {
         stage('Git-Clone') {
