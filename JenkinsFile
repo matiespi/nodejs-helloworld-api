@@ -5,17 +5,19 @@ pipeline {
             steps {
                 script{
                     sh '''
-                        rm -rf nodejs-helloworld-api.git/
                         cd /tmp
+                        rm -rf nodejs-helloworld-api.git/
                         git clone https://github.com/matiespi/nodejs-helloworld-api.git
-                        cd nodejs-helloworld-api.git
-                        npm install
+                        cd /tmp/nodejs-helloworld-api
+                        sudo apt update -y
+                        sudo apt install nodejs npm -y
                     '''
                 }
             }
         }
         stage('Test') {
             steps {
+                sh"cd /tmp/nodejs-helloworld-api"
                 sh "npm test"
             }
         }
