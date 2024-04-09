@@ -24,7 +24,6 @@ pipeline {
                 }
             }
         }
-        stages {
         stage('Test') {
             steps {
                 script {
@@ -37,9 +36,8 @@ pipeline {
                         sudo npm install --save-dev jest
                         npm test
                     '''
-                    }
+                }
             }
         }
-    }
     }
 }
