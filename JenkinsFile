@@ -11,6 +11,7 @@ pipeline {
                         cd /tmp/nodejs-helloworld-api
                         sudo apt update -y
                         sudo apt install nodejs npm -y
+                        npm install -g jest
                     '''
                 }
             }
