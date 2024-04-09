@@ -7,26 +7,17 @@ pipeline {
         stage('Git-Clone') {
             steps {
                 script {
-
+                    
                     sh '''
                         rm -rf /tmp/nodejs-helloworld-api
                         cd /tmp/
                         git clone https://github.com/matiespi/nodejs-helloworld-api.git
                         cd /tmp/nodejs-helloworld-api
                         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-                        sudo apt update -y
-                    '''
-                }
-            }
-        }
-        stage('Test') {
-            steps {
-                script {
-                    sh '''
                         # Cargar NVM
                         . $NVM_DIR/nvm.sh
+                        sudo apt update -y
                         nvm install node
-                        # Instala NPM
                         sudo npm install --save-dev jest
                         npm test
                     '''
