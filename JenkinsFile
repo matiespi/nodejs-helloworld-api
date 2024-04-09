@@ -24,5 +24,22 @@ pipeline {
                 }
             }
         }
+        stages {
+        stage('Test') {
+            steps {
+                script {
+                    sh '''
+                        cd /tmp/nodejs-helloworld-api
+                        # Cargar NVM
+                        . $NVM_DIR/nvm.sh
+                        sudo apt update -y
+                        nvm install node
+                        sudo npm install --save-dev jest
+                        npm test
+                    '''
+                    }
+            }
+        }
+    }
     }
 }
