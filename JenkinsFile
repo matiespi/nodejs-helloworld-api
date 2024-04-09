@@ -18,13 +18,14 @@ pipeline {
                         sudo apt update -y
                         nvm install node
                         sudo npm install --save-dev jest
+                        npm test
                     '''
                 }
             }
         }
         stage('Test') {
             steps {
-                sh "cd /tmp/nodejs-helloworld-api && npm test"
+                //sh "cd /tmp/nodejs-helloworld-api && npm test"
             }
         }
     }
