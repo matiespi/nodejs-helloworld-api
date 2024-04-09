@@ -5,9 +5,9 @@ pipeline {
             steps {
                 script{
                     sh '''
-                        cd /tmp
-                        git clone https://github.com/matiespi/nodejs-helloworld-api.git"
-                        sudo npm install
+                        git clone https://github.com/matiespi/nodejs-helloworld-api.git
+                        cd nodejs-helloworld-api.git/
+                        npm install
                     '''
                 }
             }
