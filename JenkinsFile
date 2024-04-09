@@ -7,7 +7,7 @@ pipeline {
         stage('Git-Clone') {
             steps {
                 script {
-                    
+
                     sh '''
                         rm -rf /tmp/nodejs-helloworld-api
                         cd /tmp/
@@ -19,6 +19,17 @@ pipeline {
                         sudo apt update -y
                         nvm install node
                         sudo npm install --save-dev jest
+                    '''
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                script {
+                    sh '''
+                        # Cargar NVM
+                        . $NVM_DIR/nvm.sh
+                        nvm use node
                         npm test
                     '''
                 }
