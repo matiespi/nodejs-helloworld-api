@@ -5,7 +5,8 @@ pipeline {
             steps {
                 script{
                     sh '''
-                        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+                        wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.39.0/install.sh | bash
+                        source ~/.profile
                         rm -rf /tmp/nodejs-helloworld-api/
                         cd /tmp/
                         git clone https://github.com/matiespi/nodejs-helloworld-api.git
