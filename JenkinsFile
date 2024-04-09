@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        NVM_DIR = """$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"""
+    }
     stages {
         stage('Git-Clone') {
             steps {
@@ -9,7 +12,14 @@ pipeline {
                         cd /tmp/
                         git clone https://github.com/matiespi/nodejs-helloworld-api.git
                         cd /tmp/nodejs-helloworld-api
+                        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+                        // Cargar NVM
+                        source $NVM_DIR/nvm.sh
+                        // Cargar NVM
+                        source $NVM_DIR/nvm.sh
                         sudo apt update -y
+                        sudo nvm install node
+                        sudo npm install --save-dev jest
                     '''
                 }
             }
