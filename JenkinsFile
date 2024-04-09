@@ -5,22 +5,17 @@ pipeline {
             steps {
                 script{
                     sh '''
-                        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-                        export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
                         cd /tmp/
                         git clone https://github.com/matiespi/nodejs-helloworld-api.git
                         cd /tmp/nodejs-helloworld-api
                         sudo apt update -y
-                        sudo nvm install 18.12.1
-                        sudo npm install --save-dev jest
                     '''
                 }
             }
         }
         stage('Test') {
             steps {
-                
+
                 sh "cd /tmp/nodejs-helloworld-api"
                 sh "npm test"
             }
